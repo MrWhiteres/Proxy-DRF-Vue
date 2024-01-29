@@ -5,6 +5,7 @@ import Drawer from './components/Drawer/Drawer.vue';
 import { useUserStore } from '@/state/user.js';
 import { watch } from 'vue';
 import axios from 'axios';
+import { getToken } from '@/handler/auto_login.js';
 
 const userStore = useUserStore();
 watch(userStore, () => {
@@ -13,22 +14,7 @@ watch(userStore, () => {
   else
     delete axios.defaults.headers.common['Authorization'];
 });
-const getToken = async () => {
-  try {
-    const response = await axios.post(
-        '/new_token/',
-        {
-          refresh: localStorage.getItem('refreshToken')
-        }
-    );
 
-    userStore.accessToken = response.data.access;
-    localStorage.setItem('refreshToken', response.data.refresh);
-    userStore.authorized = true;
-  } catch (e) {
-
-  }
-};
 if (localStorage.getItem('refreshToken')) {
   getToken();
 }

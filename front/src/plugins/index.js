@@ -2,6 +2,7 @@ import { Dialog, Loading, LoadingBar, Meta, Notify, Quasar } from 'quasar';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import pinia from '../state/index.js';
+import VueFriendlyIframe from 'vue-friendly-iframe'
 import router from '../router/index.js';
 
 import 'quasar/src/css/index.sass';
@@ -21,7 +22,7 @@ import '@quasar/extras/themify/themify.css';
 import '@quasar/extras/line-awesome/line-awesome.css';
 
 export function registerPlugins(app) {
-  axios.defaults.baseURL = 'http://localhost:8000/api/';
+  axios.defaults.baseURL = import.meta.env.DEV ? 'http://localhost:8000/api/' : 'http://127.0.0.1:4000/api/';
   app.use(Quasar, {
     plugins: {
       Notify,
@@ -30,6 +31,6 @@ export function registerPlugins(app) {
       Loading,
       Dialog,
     },
-  }).use(VueAxios, axios).use(router).use(pinia).use(router);
+  }).use(VueAxios, axios).use(router).use(pinia).use(router).use(VueFriendlyIframe);
 }
 

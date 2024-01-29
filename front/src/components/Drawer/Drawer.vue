@@ -32,7 +32,19 @@ const pusher = async (value) => {
         <q-item-label
             header
             class="text-h6"
-        >Профіль
+        >
+          Профіль
+        </q-item-label>
+      </q-item>
+      <q-item
+          clickable
+          @click="pusher('proxy')"
+      >
+        <q-item-label
+            header
+            class="text-h6"
+        >
+          Лист серверів
         </q-item-label>
       </q-item>
     </q-scroll-area>

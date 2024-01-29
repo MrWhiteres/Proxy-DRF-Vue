@@ -2,3 +2,5 @@
 *.vscode
 *.iml
 front/node_modules
+0*.py
+static

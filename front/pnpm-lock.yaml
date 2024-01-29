@@ -11,6 +11,9 @@ dependencies:
   axios:
     specifier: ^1.6.7
     version: 1.6.7
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   pinia:
     specifier: ^2.1.7
     version: 2.1.7(vue@3.4.15)
@@ -23,6 +26,9 @@ dependencies:
   vue-axios:
     specifier: ^3.5.2
     version: 3.5.2(axios@1.6.7)(vue@3.4.15)
+  vue-friendly-iframe:
+    specifier: ^0.20.0
+    version: 0.20.0
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.4.15)
@@ -653,6 +659,10 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
+
   /magic-string@0.30.5:
     resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
     engines: {node: '>=12'}
@@ -777,6 +787,12 @@ packages:
       is-number: 7.0.0
     dev: true
 
+  /uuid@3.1.0:
+    resolution: {integrity: sha512-DIWtzUkw04M4k3bf1IcpS2tngXEL26YUD2M0tMDUpnUrz2hgzUBlD55a4FjdLGPvfHxS6uluGWvaVEqgBcVa+g==}
+    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    hasBin: true
+    dev: false
+
   /vite@5.0.12(sass@1.70.0):
     resolution: {integrity: sha512-4hsnEkG3q0N4Tzf1+t6NdN9dg/L3BM+q8SWgbSPnJvrgH2kgdyzfVJwbR1ic69/4uMJJ/3dqDZZE5/WwqW8U1w==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -836,6 +852,12 @@ packages:
         optional: true
     dependencies:
       vue: 3.4.15
+    dev: false
+
+  /vue-friendly-iframe@0.20.0:
+    resolution: {integrity: sha512-aspddnbCg3i+tEkknuYwyn7NbpQuRhMMkaXdch+kY1RrAzh+YGXcxL3xCq5lmtfKiV5owG911fEgPEQNkq+tlw==}
+    dependencies:
+      uuid: 3.1.0
     dev: false
 
   /vue-router@4.2.5(vue@3.4.15):

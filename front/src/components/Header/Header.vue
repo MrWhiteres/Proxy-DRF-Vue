@@ -50,7 +50,7 @@ watch(useUserStore(), () => {
           icon="menu"
           @click="changeLeftDrawer"
       />
-      <q-toolbar-title>
+      <q-toolbar-title @click="router.push({ name: 'index' })">
         <q-avatar>
           <svg
               xmlns="http://www.w3.org/2000/svg"

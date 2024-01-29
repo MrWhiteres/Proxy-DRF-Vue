@@ -46,8 +46,16 @@ class LogoutView(views.BaseCreateView):
         return self.response({}, status.HTTP_200_OK)
 
 
-class ProfileView(views.BaseReadView):
+class ProfileView(views.BaseCreateView):
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = serializers.ProfileSerializer
 
     def get(self, request, *args, **kwargs) -> JsonResponse:
-        return self.response({}, status.HTTP_200_OK)
+        return JsonResponse(data=self.serializer_class(instance=request.user).data, status=status.HTTP_200_OK)
+
+    def post(self, request, *args, **kwargs) -> JsonResponse:
+        data = self.serializer_class(data=request.data)
+        if data.is_valid():
+            request.user.username = data.validated_data['username']
+            request.user.save()
+        return JsonResponse(data={}, status=status.HTTP_200_OK)

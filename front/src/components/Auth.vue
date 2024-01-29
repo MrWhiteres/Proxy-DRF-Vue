@@ -74,7 +74,7 @@ const submit = async () => {
       v-model="active"
       position="top"
   >
-    <q-card style="margin-top: 20%; width: 700px">
+    <q-card style="margin-top: 5%; width: 700px">
       <q-form @submit.prevent="submit" autocomplete="off" autocorrect="off">
         <q-card-section>
           <q-tabs

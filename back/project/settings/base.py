@@ -50,7 +50,16 @@ DJANGO_APPS = [
     'project.apps.proxy',
     'project.apps.users',
 ]
-
+CSRF_TRUSTED_ORIGINS =[
+    'http://127.0.0.1:81',
+    'http://127.0.0.1:4000',
+    'http://127.0.0.1:5000',
+    'http://127.0.0.1',
+    'http://localhost:81',
+    'http://localhost:4000',
+    'http://localhost:5000',
+    'http://localhost',
+]
 # Application definition
 
 INSTALLED_APPS = ASGI_APPS + DJANGO_BASE_APPS + OTHER_APPS + DJANGO_APPS
@@ -58,13 +67,16 @@ INSTALLED_APPS = ASGI_APPS + DJANGO_BASE_APPS + OTHER_APPS + DJANGO_APPS
 AUTH_USER_MODEL = 'users.User'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://gread-vue:8080",
-    "http://localhost:8080",
-    "http://127.0.0.1:3000",
-    "http://localhost:3000",
-    "http://127.0.0.1:8080",
+    "http://127.0.0.1:5000",
+    "http://127.0.0.1:4000",
+    "http://127.0.0.1:81",
+    "http://localhost:4000",
+    "http://localhost:81",
+    "http://localhost:5000",
+    "http://localhost",
+    "http://127.0.0.1",
 ]
-
+# APPEND_SLASH = False
 #
 # CORS_ALLOW_ALL_ORIGINS = True
 
@@ -144,6 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

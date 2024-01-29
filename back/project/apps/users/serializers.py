@@ -35,3 +35,10 @@ class LoginSerializer(serializers.Serializer):
         if not user.user.check_password(data['password']):
             raise serializers.ValidationError({'password': 'Incorrect password.'})
         return data
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+        read_only_fields = ['email']
